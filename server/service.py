@@ -5,13 +5,13 @@ app = Flask(__name__)
 
 version = settings.constants['API_VERSION']
 door_ids = settings.constants['DOOR_IDS']
-apiEndpoint = "/api/" + version + "/"
+api_endpoint = "/api/" + version + "/"
 
-@app.route(apiEndpoint + "doors")
+@app.route(api_endpoint + "doors")
 def getIds():
 	return json.dumps(door_ids)
 
-@app.route(apiEndpoint + "doors/<int:door_id>/toggle")
+@app.route(api_endpoint + "doors/<int:door_id>/toggle")
 def open(door_id):
 	if (door_id not in door_ids):
 		return json.dumps("invalid door id")
