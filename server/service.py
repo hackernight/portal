@@ -12,11 +12,11 @@ api_endpoint = "/api/" + version + "/"
 def getIds():
 	return json.dumps(door_ids)
 
-@app.route(api_endpoint + "doors/<int:door_id>/toggle")
+@app.route(api_endpoint + "doors/<door_id>/toggle")
 def toggle(door_id):
 	if (door_id not in door_ids):
 		return json.dumps("invalid door id")
-
+	
 	return "toggling door state on:  " + str(door_id)
 
 @app.route(api_endpoint + "temperature")
