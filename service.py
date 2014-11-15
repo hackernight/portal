@@ -1,6 +1,6 @@
 import json
 import settings
-import hardware
+import hardware.hardware
 from flask import Flask
 app = Flask(__name__)
 
@@ -16,7 +16,9 @@ def getIds():
 def toggle(door_id):
 	if (door_id not in door_ids):
 		return json.dumps("invalid door id")
-
+	print door_id
+	portal = PortalHW()
+	portal.toggleDoor(door_id)
 	return "toggling door state on:  " + str(door_id)
 
 @app.route(api_endpoint + "temperature")
@@ -32,4 +34,4 @@ def hello():
 	return "Hai."
 
 if __name__ == "__main__":
-	app.run()
+	app.run(debug=True)
