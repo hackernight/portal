@@ -1,6 +1,7 @@
-from flask import Flask
 import json
 import settings
+import hardware
+from flask import Flask
 app = Flask(__name__)
 
 version = settings.constants['API_VERSION']
