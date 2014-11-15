@@ -11,19 +11,13 @@ apiEndpoint = "/api/" + version + "/"
 def getIds():
 	return json.dumps(door_ids)
 
-@app.route(apiEndpoint + "doors/<int:door_id>/open")
+@app.route(apiEndpoint + "doors/<int:door_id>/toggle")
 def open(door_id):
 	if (door_id not in door_ids):
 		return json.dumps("invalid door id")
 
-	return "opening:  " + str(door_id)
-
-@app.route(apiEndpoint + "doors/<int:door_id>/close")
-def close(door_id):
-	if (door_id not in door_ids):
-		return json.dumps("invalid door id")
-
-	return "closing:  " + str(door_id)
+	# TODO actually toggle the door w/ sam's thing
+	return "toggling door state on:  " + str(door_id)
 
 @app.route("/")
 def hello():
