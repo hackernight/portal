@@ -12,19 +12,18 @@ def getIds():
 	return json.dumps(door_ids)
 
 @app.route(api_endpoint + "doors/<int:door_id>/toggle")
-def open(door_id):
+def toggle(door_id):
 	if (door_id not in door_ids):
 		return json.dumps("invalid door id")
 
-	# TODO actually toggle the door w/ sam's thing
 	return "toggling door state on:  " + str(door_id)
 
 @app.route(api_endpoint + "temperature")
-def getIds():
+def getTemperature():
 	return "Not Yet Implemented"
 
 @app.route(api_endpoint + "lights")
-def getIds():
+def getLights():
 	return "Not Yet Implemented"
 
 @app.route("/")
