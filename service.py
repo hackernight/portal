@@ -1,6 +1,7 @@
+#!/usr/bin/python
 import json
 import settings
-import hardware.hardware
+from hardware.hardware import PortalHW
 from flask import Flask
 app = Flask(__name__)
 
@@ -18,7 +19,7 @@ def toggle(door_id):
 		return json.dumps("invalid door id")
 	print door_id
 	portal = PortalHW()
-	portal.toggleDoor(door_id)
+	portal.toggle_door(door_id)
 	return "toggling door state on:  " + str(door_id)
 
 @app.route(api_endpoint + "temperature")
@@ -34,4 +35,4 @@ def hello():
 	return "Hai."
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	app.run(host='0.0.0.0', debug=True)
