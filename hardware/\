@@ -4,7 +4,7 @@ from time import sleep
 DOOR_1_PIN = 38 
 DOOR_2_PIN = 40
 
-#class Door:
+#class Door(Object):
 #    ONE = (DOOR_1_PIN, 1)
 #    TWO = (DOOR_2_PIN, 2)
 
@@ -14,7 +14,7 @@ doors = dict(
 )
 
 
-class PortalHW:
+class PortalHW(Object):
     def __init__(self):
         gpio.setmode(gpio.BOARD)
         gpio.setwarnings(False)
