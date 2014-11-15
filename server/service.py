@@ -1,10 +1,11 @@
 from flask import Flask
 import json
+import settings
 app = Flask(__name__)
 
-version = "v1"
+version = settings.constants['API_VERSION']
+door_ids = settings.constants['DOOR_IDS']
 apiEndpoint = "/api/" + version + "/"
-door_ids = [1, 2]
 
 @app.route(apiEndpoint + "doors")
 def getIds():
