@@ -20,11 +20,11 @@ def open(door_id):
 	return "toggling door state on:  " + str(door_id)
 
 @app.route(api_endpoint + "temperature")
-def getIds():
+def getTemperature():
 	return "Not Yet Implemented"
 
 @app.route(api_endpoint + "lights")
-def getIds():
+def getLights():
 	return "Not Yet Implemented"
 
 @app.route("/")
