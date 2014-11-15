@@ -1,4 +1,4 @@
 constants = dict(
 	API_VERSION = "v1",
-	DOOR_IDS = [1, 2]
+	DOOR_IDS = ["ONE", "TWO"]
 )

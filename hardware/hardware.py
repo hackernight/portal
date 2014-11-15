@@ -22,6 +22,8 @@ class PortalHW:
         gpio.setup(doors["TWO"], gpio.OUT)
 
     def toggle_door(self, door):
+        print door
+        print type(door)
         gpio.output(doors[door], 1)
         sleep(1)
         gpio.output(doors[door], 0)    
