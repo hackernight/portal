@@ -19,6 +19,14 @@ def open(door_id):
 	# TODO actually toggle the door w/ sam's thing
 	return "toggling door state on:  " + str(door_id)
 
+@app.route(api_endpoint + "temperature")
+def getIds():
+	return "Not Yet Implemented"
+
+@app.route(api_endpoint + "lights")
+def getIds():
+	return "Not Yet Implemented"
+
 @app.route("/")
 def hello():
 	return "Hai."
