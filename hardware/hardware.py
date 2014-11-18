@@ -1,4 +1,7 @@
-import RPi.GPIO as gpio
+try:
+    import RPi.GPIO as gpio
+except ImportError:
+    import mockgpio as gpio
 from time import sleep
 
 DOOR_1_PIN = 38 
@@ -33,6 +36,4 @@ class PortalHW:
 
 if __name__ == "__main__":
     portal = PortalHW()
-    portal.toggle_door("ONE")
-    sleep(5)
     portal.toggle_door("ONE")
