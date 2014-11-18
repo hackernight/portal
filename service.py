@@ -35,6 +35,11 @@ def getTemperature():
 def getLights():
 	return notYetImplemented()
 
+
+@app.route(api_endpoint + "")
+def startBrewingCoffee(api_endpoint + "brewer", methods = ['POST']):
+	return buildErrorFeedback(418, "Error code 418. For help, visit:  http://tools.ietf.org/html/rfc2324")
+
 @app.route("/")
 def hello():
 	return "Hai."
