@@ -3,6 +3,7 @@ import json
 import settings
 from hardware.hardware import PortalHW
 from flask import Flask
+from flask import jsonify
 app = Flask(__name__)
 
 version = settings.constants['API_VERSION']
@@ -16,11 +17,11 @@ def getIds():
 @app.route(api_endpoint + "doors/<door_id>/toggle", methods = ['POST'])
 def toggle(door_id):
 	if (door_id not in door_ids):
-		return json.dumps("invalid door id")
+		return jsonify("invalid door id")
 	print door_id
 	portal = PortalHW()
 	portal.toggle_door(door_id)
-	return "toggling door state on:  " + str(door_id)
+	return jsonify("toggling door state on:  " + str(door_id))
 
 @app.route(api_endpoint + "doors/<door_id>/toggle", methods = ['GET'])
 def getDoorState(door_id):
