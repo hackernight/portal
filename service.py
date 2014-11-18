@@ -4,6 +4,7 @@ import settings
 from hardware.hardware import PortalHW
 from flask import Flask
 from flask import jsonify
+from flask import Response
 app = Flask(__name__)
 
 version = settings.constants['API_VERSION']
@@ -25,19 +26,29 @@ def toggle(door_id):
 
 @app.route(api_endpoint + "doors/<door_id>/toggle", methods = ['GET'])
 def getDoorState(door_id):
-	return "Not Yet Implemented"
+	return notYetImplemented()
 
 @app.route(api_endpoint + "temperature", methods = ['GET'])
 def getTemperature():
-	return "Not Yet Implemented"
+	return notYetImplemented()
 
 @app.route(api_endpoint + "lights", methods = ['POST'])
 def getLights():
-	return "Not Yet Implemented"
+	return notYetImplemented()
 
 @app.route("/")
 def hello():
 	return "Hai."
+
+def notYetImplemented():
+	errorCode = 404
+	message = {
+		'status': errorCode,
+		'message': 'Endpoint found but not yet implemented:  ' + request.url
+	}
+	response = jsonify(message)
+	response.status_code = errorCode
+	return response
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', debug=True)
