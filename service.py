@@ -21,12 +21,13 @@ def getIds():
 	return json.dumps(door_ids)
 
 @app.route(api_endpoint + "doors/<door_id>/toggle", methods = ['POST'])
-def toggle(door_id):
+def toggle(door_id):	
 	if (door_id not in door_ids):
-		return jsonify("invalid door id")
+		return json.dumps("invalid door id")
+
 	portal = PortalHW()
 	portal.toggle_door(door_id)
-	return jsonify("toggling door state on:  " + str(door_id))
+	return json.dumps("toggling door state on:  " + str(door_id))
 
 @app.route(api_endpoint + "doors/<door_id>/toggle", methods = ['GET'])
 def getDoorState(door_id):
