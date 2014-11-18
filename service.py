@@ -22,6 +22,10 @@ def toggle(door_id):
 	portal.toggle_door(door_id)
 	return "toggling door state on:  " + str(door_id)
 
+@app.route(api_endpoint + "doors/<door_id>/toggle", methods = ['GET'])
+def getDoorState(door_id):
+	return "Not Yet Implemented"
+
 @app.route(api_endpoint + "temperature", methods = ['GET'])
 def getTemperature():
 	return "Not Yet Implemented"
