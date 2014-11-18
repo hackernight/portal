@@ -9,11 +9,11 @@ version = settings.constants['API_VERSION']
 door_ids = settings.constants['DOOR_IDS']
 api_endpoint = "/api/" + version + "/"
 
-@app.route(api_endpoint + "doors")
+@app.route(api_endpoint + "doors", methods = ['GET'])
 def getIds():
 	return json.dumps(door_ids)
 
-@app.route(api_endpoint + "doors/<door_id>/toggle")
+@app.route(api_endpoint + "doors/<door_id>/toggle", methods = ['POST'])
 def toggle(door_id):
 	if (door_id not in door_ids):
 		return json.dumps("invalid door id")
@@ -22,11 +22,11 @@ def toggle(door_id):
 	portal.toggle_door(door_id)
 	return "toggling door state on:  " + str(door_id)
 
-@app.route(api_endpoint + "temperature")
+@app.route(api_endpoint + "temperature", methods = ['GET'])
 def getTemperature():
 	return "Not Yet Implemented"
 
-@app.route(api_endpoint + "lights")
+@app.route(api_endpoint + "lights", methods = ['POST'])
 def getLights():
 	return "Not Yet Implemented"
 
