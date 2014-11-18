@@ -3,6 +3,7 @@ import settings
 from hardware.hardware import PortalHW
 from flask import Flask
 from flask import jsonify
+import json
 from flask import Response
 app = Flask(__name__)
 
@@ -12,7 +13,12 @@ api_endpoint = "/api/" + version + "/"
 
 @app.route(api_endpoint + "doors", methods = ['GET'])
 def getIds():
-	return jsonify(door_ids)
+	print door_ids
+	print type(door_ids)
+	# You can't actually use flask's jsonify here for security reasons
+	# Turns out, showing that it's a list under-the-hood is bad.
+	# TODO find a better way to do this. Dict?
+	return json.dumps(door_ids)
 
 @app.route(api_endpoint + "doors/<door_id>/toggle", methods = ['POST'])
 def toggle(door_id):
@@ -45,11 +51,11 @@ def hello():
 
 @app.errorhandler(404)
 def pageNotFound(error=None):
-	return buildErrorFeedback(404, "Page not found:  " + request.url)
+	return buildErrorFeedback(404, "Page not found")
 
 def notYetImplemented():
 	errorCode = 404
-	message = 'Endpoint has not yet been implemented:  ' + request.url
+	message = 'Endpoint has not yet been implemented'
 	return buildErrorFeedback(errorCode, message)
 
 def buildErrorFeedback(errorCode, errorMessage):

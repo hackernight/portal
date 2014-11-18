@@ -11,3 +11,9 @@ def test_doors_toggle_negative():
 	
 	assert "toggling" not in message
 	assert "invalid" in message
+
+def test_doors_getIds():
+	message = serv.getIds()
+
+	assert "ONE" in message
+	assert "TWO" in message
