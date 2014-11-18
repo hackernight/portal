@@ -4,9 +4,11 @@ from time import sleep
 DOOR_1_PIN = 38 
 DOOR_2_PIN = 40
 
-#class Door:
-#    ONE = (DOOR_1_PIN, 1)
-#    TWO = (DOOR_2_PIN, 2)
+class Door:
+    ONE = (DOOR_1_PIN, 1)
+    TWO = (DOOR_2_PIN, 2)
+    def get_pin(self):
+        
 
 doors = dict(
     ONE = DOOR_1_PIN,
@@ -22,6 +24,8 @@ class PortalHW:
         gpio.setup(doors["TWO"], gpio.OUT)
 
     def toggle_door(self, door):
+        print door
+        print type(door)
         gpio.output(doors[door], 1)
         sleep(1)
         gpio.output(doors[door], 0)    
