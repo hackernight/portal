@@ -39,15 +39,24 @@ def getLights():
 def hello():
 	return "Hai."
 
+@app.errorhandler(404)
+def pageNotFound(error=None):
+	return buildErrorFeedback(404, "Page not found:  " + request.url)
+
 def notYetImplemented():
 	errorCode = 404
+	message = 'Endpoint found but not yet implemented:  ' + request.url
+	return buildErrorFeedback(errorCode, message)
+
+def buildErrorFeedback(errorCode, errorMessage):
 	message = {
 		'status': errorCode,
-		'message': 'Endpoint found but not yet implemented:  ' + request.url
+		'message': errorMessage
 	}
 	response = jsonify(message)
 	response.status_code = errorCode
 	return response
+
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', debug=True)
