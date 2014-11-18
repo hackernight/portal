@@ -45,7 +45,7 @@ def pageNotFound(error=None):
 
 def notYetImplemented():
 	errorCode = 404
-	message = 'Endpoint found but not yet implemented:  ' + request.url
+	message = 'Endpoint has not yet been implemented:  ' + request.url
 	return buildErrorFeedback(errorCode, message)
 
 def buildErrorFeedback(errorCode, errorMessage):
