@@ -1,5 +1,4 @@
 #!/usr/bin/python
-import json
 import settings
 from hardware.hardware import PortalHW
 from flask import Flask
@@ -13,7 +12,7 @@ api_endpoint = "/api/" + version + "/"
 
 @app.route(api_endpoint + "doors", methods = ['GET'])
 def getIds():
-	return json.dumps(door_ids)
+	return jsonify(door_ids)
 
 @app.route(api_endpoint + "doors/<door_id>/toggle", methods = ['POST'])
 def toggle(door_id):
