@@ -5,6 +5,7 @@ from flask import Flask
 from flask import jsonify
 import json
 from flask import Response
+from flask import render_template
 app = Flask(__name__)
 
 version = settings.constants['API_VERSION']
@@ -48,7 +49,7 @@ def startBrewingCoffee():
 
 @app.route("/")
 def hello():
-	return "Hai."
+	return render_template('gui.html')
 
 @app.errorhandler(404)
 def pageNotFound(error=None):
