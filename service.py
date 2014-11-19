@@ -25,7 +25,6 @@ def getIds():
 def toggle(door_id):	
 	if (door_id not in door_ids):
 		return json.dumps("invalid door id")
-
 	portal = PortalHW()
 	portal.toggle_door(door_id)
 	return json.dumps("toggling door state on:  " + str(door_id))
