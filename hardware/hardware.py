@@ -2,7 +2,7 @@ try:
     import RPi.GPIO as gpio
 except ImportError:
     from mockgpio import MockGPIO as gpio
-from time import sleep
+import time
 
 DOOR_1_PIN = 38
 DOOR_2_PIN = 40
@@ -26,7 +26,7 @@ class PortalHW:
 
     def toggle_door(self, door):
         gpio.output(doors[door], 1)
-        sleep(1)
+        time.sleep(1)
         gpio.output(doors[door], 0)
     #def lights_on():
     #def lights_off():
