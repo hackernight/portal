@@ -1,9 +1,17 @@
 body {
 	text-align: center;
+	padding; 0;
+	margin: 0;
 }
 
 div {
 	border-bottom: 1px solid #ccc;
+}
+
+header {
+	background: #2c3e50;
+	color: #ecf0f1;	
+	padding: 1;
 }
 
 .button {	
