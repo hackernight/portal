@@ -1,0 +1,42 @@
+body {
+	text-align: center;
+}
+
+div {
+	border-bottom: 1px solid #ccc;
+}
+
+.button {	
+	border: 1px solid #bdc3c7; 
+	padding: 20; 
+	min-width: 300; 
+	height: 75; 
+	margin: 10;
+	font-size: 1.3em;
+}
+
+.getter {
+	background: #2980b9;
+	color: #111;
+}
+
+.getter:hover {
+	background: #3498db;
+}
+
+.getter, .setter {
+	color: #ecf0f1;
+}
+
+.setter {
+	background: #d35400;	
+}
+
+.setter:hover {
+	background: #e67e22;
+}
+
+.nyi {
+	background: #7f8c8d;
+	color: #95a5a6;
+}
